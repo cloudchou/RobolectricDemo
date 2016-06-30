@@ -5,6 +5,7 @@ import android.os.Build;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
+import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowSystemProperties;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 /**
  * Created by Cloud on 2016/6/27.
  */
-@RunWith(RobolectricGradleTestRunner2.class)
+@RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/test/AndroidManifest.xml")
 @PowerMockIgnore({"org.mockito.*", "org.robolectric.*", "android.*"})
 public class ShadowTest {
