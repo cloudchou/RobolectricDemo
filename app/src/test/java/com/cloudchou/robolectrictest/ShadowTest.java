@@ -15,7 +15,7 @@ import java.io.IOException;
  * Created by Cloud on 2016/6/27.
  */
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/test/AndroidManifest.xml")
+@Config(constants = BuildConfig.class, sdk = 21)
 @PowerMockIgnore({"org.mockito.*", "org.robolectric.*", "android.*"})
 public class ShadowTest {
 
@@ -33,7 +33,7 @@ public class ShadowTest {
 
     @Config(shadows = {CloudSystemProperties.class})
     @Test
-    public void testEvn2() throws IllegalAccessException, NoSuchFieldException {
+    public void testEvn2() {
         System.out.println(Build.VERSION.RELEASE);
         System.out.println(Build.VERSION.SDK_INT);
         System.out.println(Build.DEVICE);
@@ -45,7 +45,7 @@ public class ShadowTest {
 
     @Config(shadows = {CloudSystemProperties2.class})
     @Test
-    public void testShadow2() throws IllegalAccessException, NoSuchFieldException, IOException {
+    public void testShadow2() {
         System.out.println(Build.VERSION.RELEASE);
         System.out.println(Build.VERSION.SDK_INT);
         System.out.println(Build.DEVICE);

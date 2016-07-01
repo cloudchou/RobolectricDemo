@@ -12,6 +12,7 @@ import java.lang.reflect.Field;
 /**
  * Created by Cloud on 2016/6/29.
  */
+//可以修改AndroidManifest和asset的TestRunner
 public class RobolectricGradleTestRunner2 extends RobolectricGradleTestRunner {
 
     public RobolectricGradleTestRunner2(Class<?> klass) throws InitializationError {
@@ -32,18 +33,16 @@ public class RobolectricGradleTestRunner2 extends RobolectricGradleTestRunner {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
-            if (config.assetDir() != null && !"".equals(config.assetDir())) {
-                String parent = new File(config.manifest()).getParent();
-                FileFsFile assetFile = FileFsFile.from(parent, config.assetDir());
-                try {
-                    Field assetsDirectoryFile = appManifest.getClass().getSuperclass().getDeclaredField("assetsDirectory");
-                    assetsDirectoryFile.setAccessible(true);
-                    assetsDirectoryFile.set(appManifest, assetFile);
-                } catch (NoSuchFieldException e) {
-                    e.printStackTrace();
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
+            String parent = new File(config.manifest()).getParent();
+            FileFsFile assetFile = FileFsFile.from(parent, config.assetDir());
+            try {
+                Field assetsDirectoryFile = appManifest.getClass().getSuperclass().getDeclaredField("assetsDirectory");
+                assetsDirectoryFile.setAccessible(true);
+                assetsDirectoryFile.set(appManifest, assetFile);
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
         return appManifest;

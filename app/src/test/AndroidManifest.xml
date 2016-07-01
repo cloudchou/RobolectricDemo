@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cloudchou.bb">
+    package="com.cloudchou.bb"
+    android:versionCode="5"
+    android:versionName="1.2.3">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"></application>
+        android:label="@string/app_name">
+
+    </application>
 
 </manifest>

@@ -1,10 +1,7 @@
 package com.cloudchou.robolectrictest;
 
-import android.app.Application;
-import android.content.res.AssetManager;
 import android.os.SystemProperties;
 
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Implementation;
 import org.robolectric.annotation.Implements;
 
@@ -23,7 +20,7 @@ public class CloudSystemProperties2 {
         Properties prop = new Properties();
         InputStream is = null;
         try {
-            is = CloudSystemProperties2.class.getResourceAsStream("i9100g.prop");
+            is = CloudSystemProperties2.class.getResourceAsStream("test.prop");
             prop.load(is);
             return prop.getProperty(key);
         } catch (IOException e) {
