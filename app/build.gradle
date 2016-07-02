@@ -48,11 +48,14 @@ task mytest {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.shuame:CommonUtils:1.0.8"
     testCompile 'junit:junit:4.12'
     testCompile "org.powermock:powermock-module-junit4:1.6.4"
     testCompile "org.powermock:powermock-module-junit4-rule:1.6.4"
     testCompile "org.powermock:powermock-api-mockito:1.6.4"
     testCompile "org.powermock:powermock-classloading-xstream:1.6.4"
-    testCompile "org.robolectric:robolectric:3.1"
+    //如果使用3.0的robolectric 就可以支持Powermock, 如果选择3.1的mock 就可以支持非AndroidSdk的类的Shadow
+    testCompile "org.robolectric:robolectric:3.0"
+//    testCompile "org.robolectric:robolectric:3.1"
     compile 'com.android.support:appcompat-v7:24.0.0'
 }
