@@ -20,7 +20,7 @@ public class CloudSystemProperties2 {
         Properties prop = new Properties();
         InputStream is = null;
         try {
-            is = CloudSystemProperties2.class.getResourceAsStream("test.prop");
+            is = CloudSystemProperties2.class.getResourceAsStream("i9100g.prop");
             prop.load(is);
             return prop.getProperty(key);
         } catch (IOException e) {

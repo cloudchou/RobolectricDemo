@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
     defaultConfig {
         applicationId "com.cloudchou.robolectrictest"
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -20,6 +20,9 @@ android {
     testOptions {
         unitTests.all {
             beforeTest {
+//                testVariants.all { variant ->
+//                    println("vname:" + variant.name + ";output file:" + variant.javaCompile.destinationDir);
+//                }
                 def testClassDir = buildDir.getAbsolutePath() + "/intermediates/classes/test/debug"
                 copy {
                     from(android.sourceSets.test.java.srcDirs) {
@@ -32,23 +35,8 @@ android {
     }
 }
 
-task mytest {
-    doLast {
-        println(buildDir)
-        println(android.sourceSets.test.java.srcDirs)
-        def testClassDir = buildDir.getAbsolutePath() + "/intermediates/classes/test/debug"
-        copy {
-            from(android.sourceSets.test.java.srcDirs) {
-                exclude '**/*.java'
-            }
-            into(testClassDir)
-        }
-    }
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.shuame:CommonUtils:1.0.8"
     testCompile 'junit:junit:4.12'
     testCompile "org.powermock:powermock-module-junit4:1.6.4"
     testCompile "org.powermock:powermock-module-junit4-rule:1.6.4"
@@ -57,5 +45,5 @@ dependencies {
     //如果使用3.0的robolectric 就可以支持Powermock, 如果选择3.1的mock 就可以支持非AndroidSdk的类的Shadow
     testCompile "org.robolectric:robolectric:3.0"
 //    testCompile "org.robolectric:robolectric:3.1"
-    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:appcompat-v7:23.0.0'
 }
