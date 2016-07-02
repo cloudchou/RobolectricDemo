@@ -13,14 +13,14 @@ buildscript {
 }
 
 
-//allprojects {
-//    repositories {
-//        jcenter()
-//    }
-//}
-//
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
 
-apply from: 'http://gitlab.shuame.org/zhouyaoyun/mvnnexuspublish/raw/master/mvn-nexus-publish.gradle'
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+//apply from: 'http://gitlab.shuame.org/zhouyaoyun/mvnnexuspublish/raw/master/mvn-nexus-publish.gradle'
