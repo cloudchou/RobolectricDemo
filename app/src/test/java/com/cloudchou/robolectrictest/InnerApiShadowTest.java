@@ -24,7 +24,7 @@ public class InnerApiShadowTest {
 
     @Test
     @Config(shadows = {ShadowHelloUtils.class})
-    public void testManifestConfig() {
+    public void tesInnerApi() {
         HelloUtils.test();
     }
 

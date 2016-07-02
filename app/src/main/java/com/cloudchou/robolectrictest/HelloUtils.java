@@ -10,7 +10,4 @@ public class HelloUtils {
         System.out.println("Hello world");
     }
 
-    public static void test2(Context ctx) {
-//        System.out.println(Misc);
-    }
 }
