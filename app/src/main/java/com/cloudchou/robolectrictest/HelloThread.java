@@ -48,6 +48,8 @@ public class HelloThread {
             doSomething();
             setInitStatus(InitStatus.OK);
         } catch (Throwable e) {
+            //初始化失败后打印日志，这也是我们写程序时时常见的一种做法，
+            //通过日志能帮助程序员更好地定位问题
             System.out.println("========> init failed ===<<<");
             SLog.e(TAG, "init failed");
             setInitStatus(InitStatus.FAILED);
@@ -68,6 +70,7 @@ public class HelloThread {
 
     private void doSomething() throws InterruptedException {
         Thread.sleep(3500);
+        //假设初始化失败
         throw new RuntimeException("som exception");
     }
 

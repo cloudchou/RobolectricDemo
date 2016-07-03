@@ -43,6 +43,7 @@ public class HelloThreadTest {
         PowerMockito.spy(SLog.class);
         HelloThread.getInstance().init();
         HelloThread.getInstance().waitForInitFinished();
+        //因为我们在被测试代码里调用了SLog.e 日志， 所以verifyStatic  必然失败
         PowerMockito.verifyStatic(times(0));
         SLog.e(HelloThread.class.getSimpleName(), "init failed");
     }
